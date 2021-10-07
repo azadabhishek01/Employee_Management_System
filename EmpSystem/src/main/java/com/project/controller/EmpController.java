@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -32,9 +33,10 @@ public class EmpController {
     }
 
     @PostMapping("/register")
-    public String empRegister(@ModelAttribute Employee e){
+    public String empRegister(@ModelAttribute Employee e, HttpSession session){
         System.out.println(e);
         service.addEmp(e);
+        session.setAttribute("msg","Employee data Added successfully");
         return "redirect:/";
     }
 
@@ -46,8 +48,9 @@ public class EmpController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteEmp(@PathVariable int id){
+    public String deleteEmp(@PathVariable int id, HttpSession session){
         service.delEmp(id);
+        session.setAttribute("msg","Employee data Deleted successfully");
         return "redirect:/";
     }
 }
