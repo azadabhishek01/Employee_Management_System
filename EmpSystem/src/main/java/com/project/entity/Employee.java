@@ -16,9 +16,9 @@ public class Employee {
     private String address;
     private String email;
     private String phone_no;
-    private int salary;
+    private String salary;
 
-    public Employee(){
+    public Employee() {
         super();
     }
 
@@ -62,11 +62,11 @@ public class Employee {
         this.phone_no = phone_no;
     }
 
-    public int getSalary() {
+    public String getSalary() {
         return salary;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(String salary) {
         this.salary = salary;
     }
 
